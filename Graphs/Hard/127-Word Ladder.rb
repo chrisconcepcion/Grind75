@@ -15,12 +15,12 @@
 # 3. Using our new set of words from step 2, we do the process again until there is no words in the set or the end word is in the set. No words in the set means we return 0 to suggest there is no possible solution, end word in the set means we do have a solution(index + 2)
 
 
-# Time: O(n)
-# Space: O(n)
+# Time: O(|V|)
+# Space: O(|V|)
 require 'set'
 def ladder_length(begin_word, end_word, word_list)
     # Time: O(n)
-    # Space: O(1)
+    # Space: O(n)
     word_list_set = Set.new(word_list)
 
     # Time: O(1)
@@ -37,11 +37,10 @@ def ladder_length(begin_word, end_word, word_list)
 
     index = 0
     while current_word_set.size > 0
-        # Time: O(n)
+        # Time: O(|V|)
         # word is always a word that matched the previous found set of words in the word list.
         # After running the block below, we will not get our original current_word_set words in the returned set.
         current_word_set = current_word_set.inject(Set[]) do |set, word|
-            # Time: O(n)
             generate_possibitites_based_on_letter_changes(word).each do |possible_word_in_word_set|
                 # Add possible_word_in_word_set to the set if it can be deleted
                 # from word_list_set.
@@ -74,7 +73,7 @@ end
 
 
 # Time: O(N)
-# Space: O(1)
+# Space: O(N)
 # Essentially we are returning an array of possiblies by replaces all letters in word by all other letters in the alphabet.
 def generate_possibitites_based_on_letter_changes word
         index = 0
