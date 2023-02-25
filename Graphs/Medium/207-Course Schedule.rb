@@ -61,7 +61,7 @@ end
 def qualify_course_and_update_completed_courses course, prerequisites, completed_courses, stack_too_deep_preventer = Set.new
     # check if course is completed
     if !completed_courses.include? course
-        # can we complete prereq? or if there is no preeq
+         # Get prerequisites for course.
         prereq = prerequisites[course]
 
 
