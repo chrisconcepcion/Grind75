@@ -2,7 +2,7 @@
 # 1. Reverse a and b strings.
 # 2. Determine max size by figuring out which of a or b is longer.
 # 3. Use a value to store a carry over value("1" + "1" in binary gives us "10", in "10" the 1 is carried over like the 10 is in basic math.)
-# 4. Now going both a and b 1 letter at a time, convert this letter to an integer and add it to the previously calculated carry over value. When 1 or 0, set carry over value to 0 and prepend this total value to the array. When total value is 2 or 3 set carry over to 1, subtract 2 from total value and prepend the calculated value to the array.
+# 4. Now going through both a and b 1 letter at a time, convert this letter to an integer and add it to the previously calculated carry over value. When 1 or 0, set carry over value to 0 and prepend this total value to the array. When total value is 2 or 3 set carry over to 1, subtract 2 from total value and prepend the calculated value to the array.
 #5. When done account for the last carry over, if it's 1 then prepend 1 to the array.
 #6. Go through the array and concat all the values together and return concat'd string.
 
