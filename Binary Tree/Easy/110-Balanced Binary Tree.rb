@@ -1,5 +1,9 @@
 # Approach
 # Use DFS to determine the depth of left and right node.
+# When we have a difference of more than 1 between the depth of left and
+# right subtrees, we return false.
+# DFS is the best algo for this question.
+
 
 # Definition for a binary tree node.
 # class TreeNode
@@ -36,14 +40,21 @@ class Dfs
         return @success
     end
 
-    def dfs node, depth = 0
+    # Recursively transverse nodes til we reach the bottom(run out of children).
+    # Once at the bottom of tree, 0 will be return and for each level above it
+    # we will add 1.
+    # Stack Data Structure, Last in, first out.
+    # Essentially this returns the depth of a left and right subtree and when we
+    # have a difference of more than 1 between the depth of left and right subtrees,
+    # we set @success to false.
+    def dfs node
         if node.nil?
             return 0
         end
 
-        left = dfs(node.left, depth + 1)
+        left = dfs(node.left)
 
-        right = dfs(node.right, depth + 1)
+        right = dfs(node.right)
 
         difference = (left - right).abs
 
